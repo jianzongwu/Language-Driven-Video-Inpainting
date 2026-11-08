@@ -82,7 +82,7 @@ class ModelWorker:
             "check_heart_beat": True,
             "worker_status": self.get_status()
         }
-        r = requests.post(url, json=data)
+        r = requests.post(url, json=data, timeout=30)
         assert r.status_code == 200
 
     def send_heart_beat(self):
